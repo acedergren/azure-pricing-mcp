@@ -78,3 +78,19 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Build system
+pip-wheel-metadata/
+.eggs/
+
+# Temporary files
+/tmp/
+*.tmp
