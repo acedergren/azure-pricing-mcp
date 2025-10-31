@@ -87,9 +87,9 @@ class TestMCPToolHandlers:
                     "service_name": "Virtual Machines",
                     "sku_name": "D2s v3",
                     "region": "eastus",
-                    "product_name": "Virtual Machines Dv3 Series",  # Added required field
-                    "unit_of_measure": "1 Hour",  # Added required field
-                    "currency": "USD",  # Added required field
+                    "product_name": "Virtual Machines Dv3 Series",
+                    "unit_of_measure": "1 Hour",
+                    "currency": "USD",
                     "on_demand_pricing": {
                         "hourly_rate": 0.096,
                         "daily_cost": 2.30,
@@ -100,7 +100,7 @@ class TestMCPToolHandlers:
                         "hours_per_month": 240,
                         "hours_per_day": 8.0
                     },
-                    "savings_plans": []  # Added required field
+                    "savings_plans": []
                 }
                 
                 result = await handle_call_tool(
@@ -185,8 +185,8 @@ class TestMCPToolHandlers:
                 "discount_percentage": 10.0,
                 "discount_type": "standard",
                 "description": "Standard customer discount",
-                "applicable_services": "all",  # Added required field
-                "note": "Contact sales for enterprise discounts"  # Added required field
+                "applicable_services": "all",
+                "note": "Contact sales for enterprise discounts"
             }
             
             result = await handle_call_tool(

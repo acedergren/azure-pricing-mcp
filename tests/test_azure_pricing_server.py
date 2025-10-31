@@ -265,7 +265,8 @@ class TestAzurePricingServer:
                 )
                 
                 assert "comparison_type" in result
-                assert result["comparison_type"] == "regions"  # Fixed: actual implementation uses "regions" not "regional"
+                # Actual implementation uses "regions" for regional comparison
+                assert result["comparison_type"] == "regions"
                 assert "comparisons" in result
                 # Should have data for both regions
                 assert len(result["comparisons"]) > 0
@@ -284,7 +285,7 @@ class TestAzurePricingServer:
                     hours_per_month=240
                 )
                 
-                # Fixed: actual implementation uses "on_demand_pricing" not "estimated_costs"
+                # Actual implementation uses "on_demand_pricing" structure
                 assert "on_demand_pricing" in result
                 assert "monthly_cost" in result["on_demand_pricing"]
                 assert "hourly_rate" in result["on_demand_pricing"]
