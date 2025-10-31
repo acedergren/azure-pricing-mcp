@@ -7,6 +7,8 @@ import pytest
 from unittest.mock import AsyncMock, MagicMock, patch
 from aiohttp import ClientResponseError
 
+# Add parent directory to path to allow importing without package installation
+# This is a common pattern for development testing
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from azure_pricing_server import AzurePricingServer, AZURE_PRICING_BASE_URL  # noqa: E402

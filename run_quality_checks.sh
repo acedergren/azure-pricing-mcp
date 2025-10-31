@@ -19,9 +19,12 @@ echo "✅ Code formatting passed"
 # Run flake8 linting
 echo ""
 echo "2. Running flake8 linting..."
-python -m flake8 azure_pricing_server.py tests/ || {
+python -m flake8 azure_pricing_server.py tests/
+FLAKE8_EXIT=$?
+if [ $FLAKE8_EXIT -ne 0 ]; then
     echo "⚠️  Flake8 found some issues (check output above)"
-}
+    echo "   Note: Complexity warnings (C901) and minor line length issues are acceptable"
+fi
 
 # Run tests with coverage
 echo ""
