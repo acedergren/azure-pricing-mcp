@@ -82,6 +82,7 @@ Once configured with Claude, you can ask:
 
 ## 🧪 Testing
 
+### Quick Testing
 Test setup and connectivity:
 ```bash
 # Windows PowerShell
@@ -90,6 +91,22 @@ Test setup and connectivity:
 # Cross-platform test
 python -m azure_pricing_server --test
 ```
+
+### Comprehensive Testing & Quality Checks
+
+Run the complete test suite with coverage:
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run all tests with coverage
+pytest tests/ -v --cov
+
+# Run all quality checks (tests, linting, formatting)
+bash run_quality_checks.sh
+```
+
+For more details, see [TESTING.md](TESTING.md)
 
 ## 📚 Documentation
 
