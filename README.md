@@ -1,5 +1,10 @@
 # Azure Pricing MCP Server 💰
 
+[![CI](https://github.com/acedergren/azure-pricing-mcp/workflows/CI/badge.svg)](https://github.com/acedergren/azure-pricing-mcp/actions)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 A Model Context Protocol (MCP) server that provides tools for querying Azure retail pricing information using the Azure Retail Prices API.
 
 ## 🚀 Quick Start
@@ -82,13 +87,43 @@ Once configured with Claude, you can ask:
 
 ## 🧪 Testing
 
-Test setup and connectivity:
+### Running Tests
+
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run all tests
+pytest tests/ -v
+
+# Run tests with coverage
+pytest tests/ --cov=azure_pricing_server --cov-report=html
+
+# Run only unit tests (skip integration tests)
+pytest tests/ -m "not integration"
+```
+
+### Test Setup Verification
+
 ```bash
 # Windows PowerShell
 .\test_setup.ps1
 
 # Cross-platform test
 python -m azure_pricing_server --test
+```
+
+### Code Quality
+
+```bash
+# Format code
+black azure_pricing_server.py
+
+# Lint code
+flake8 azure_pricing_server.py
+
+# Type checking
+mypy azure_pricing_server.py
 ```
 
 ## 📚 Documentation
@@ -126,12 +161,36 @@ This server uses the official Azure Retail Prices API:
 
 ## 🤝 Contributing
 
-This project follows the Spec-Driven Development (SDD) methodology. Contributions are welcome!
+Contributions are welcome! We appreciate your help in making this project better.
+
+### How to Contribute
 
 1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Add tests for new functionality
+5. Ensure all tests pass (`pytest tests/`)
+6. Format your code (`black azure_pricing_server.py`)
+7. Commit your changes (`git commit -m 'Add amazing feature'`)
+8. Push to the branch (`git push origin feature/amazing-feature`)
+9. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+### Development Setup
+
+```bash
+# Clone your fork
+git clone https://github.com/yourusername/azure-pricing-mcp.git
+cd azure-pricing-mcp
+
+# Install dependencies
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+
+# Run tests
+pytest tests/ -v
+```
 
 ## 📄 License
 
