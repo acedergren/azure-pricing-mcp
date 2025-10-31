@@ -82,14 +82,27 @@ Once configured with Claude, you can ask:
 
 ## 🧪 Testing
 
-Test setup and connectivity:
-```bash
-# Windows PowerShell
-.\test_setup.ps1
+The project includes a comprehensive test suite with 36 tests covering all major functionality.
 
-# Cross-platform test
-python -m azure_pricing_server --test
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=azure_pricing_server --cov-report=html
+
+# Run specific test file
+pytest tests/test_azure_pricing_server.py
 ```
+
+**Test Coverage:**
+- 70% code coverage
+- All 6 MCP tools tested
+- Retry logic and error handling
+- SKU validation and fuzzy matching
+- Discount application
+
+See [tests/README.md](tests/README.md) for detailed testing documentation.
 
 ## 📚 Documentation
 
