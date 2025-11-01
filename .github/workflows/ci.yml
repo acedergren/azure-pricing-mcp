@@ -10,6 +10,8 @@ jobs:
   test:
     name: Test on Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
@@ -44,6 +46,8 @@ jobs:
   lint:
     name: Lint and Format Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
     - uses: actions/checkout@v4
@@ -75,6 +79,8 @@ jobs:
   security:
     name: Security Scan
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
     - uses: actions/checkout@v4
@@ -109,6 +115,8 @@ jobs:
   integration-test:
     name: Integration Tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     # Only run on main branch to avoid API rate limits
     if: github.ref == 'refs/heads/main'
     
