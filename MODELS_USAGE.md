@@ -59,6 +59,9 @@ const validated = CostEstimateSchema.parse(estimateInput);
 ### Example 3: Handling Validation Errors
 
 ```typescript
+import { z } from 'zod';
+import { PricingSearchSchema } from './src/models/pricing.models';
+
 try {
   // This will fail - limit exceeds maximum
   PricingSearchSchema.parse({
