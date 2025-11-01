@@ -6,10 +6,15 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: read
+
 jobs:
   check-dependencies:
     name: Check for dependency updates
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
     - uses: actions/checkout@v4
