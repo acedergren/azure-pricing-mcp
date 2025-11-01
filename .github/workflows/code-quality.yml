@@ -1,0 +1,49 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  quality:
+    name: Code Quality Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for better analysis
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+        pip install radon
+    
+    - name: Calculate complexity metrics
+      run: |
+        echo "## Cyclomatic Complexity" >> $GITHUB_STEP_SUMMARY
+        radon cc azure_pricing_server.py -s -a >> $GITHUB_STEP_SUMMARY || true
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Maintainability Index" >> $GITHUB_STEP_SUMMARY
+        radon mi azure_pricing_server.py -s >> $GITHUB_STEP_SUMMARY || true
+    
+    - name: Check test coverage
+      run: |
+        pytest tests/ -v -m "not integration" --cov=azure_pricing_server --cov-report=term --cov-report=html
+    
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: htmlcov/

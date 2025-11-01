@@ -1,0 +1,15 @@
+# Exclude specific directories from Ruff linting
+extend-exclude = [
+    ".venv",
+    ".venv*",
+    "venv",
+    "build",
+    "dist",
+    "*.egg-info",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "htmlcov",
+    "azure_pricing_server_simple",  # Legacy directory
+]
