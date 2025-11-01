@@ -50,4 +50,5 @@ class TestAzurePricingIntegration:
             )
 
             assert result is not None
-            assert "estimated_monthly_cost" in result
+            assert "on_demand_pricing" in result
+            assert "monthly_cost" in result["on_demand_pricing"]
