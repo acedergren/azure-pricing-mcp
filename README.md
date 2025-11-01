@@ -1,5 +1,10 @@
 # Azure Pricing MCP Server 💰
 
+[![CI](https://github.com/acedergren/azure-pricing-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/acedergren/azure-pricing-mcp/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/acedergren/azure-pricing-mcp/branch/main/graph/badge.svg)](https://codecov.io/gh/acedergren/azure-pricing-mcp)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 A Model Context Protocol (MCP) server that provides tools for querying Azure retail pricing information using the Azure Retail Prices API.
 
 ## 🚀 Quick Start
