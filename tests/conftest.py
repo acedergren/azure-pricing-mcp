@@ -1,11 +1,10 @@
 """Pytest configuration and fixtures for Azure Pricing MCP Server tests."""
 
 import asyncio
-import pytest
-from typing import AsyncGenerator
-from unittest.mock import AsyncMock, MagicMock
+from unittest.mock import AsyncMock
 
 import aiohttp
+import pytest
 
 
 @pytest.fixture(scope="session")
@@ -20,19 +19,15 @@ def event_loop():
 async def mock_aiohttp_session() -> AsyncMock:
     """Create a mock aiohttp ClientSession."""
     session = AsyncMock(spec=aiohttp.ClientSession)
-    
+
     # Mock response
     mock_response = AsyncMock()
     mock_response.status = 200
-    mock_response.json = AsyncMock(return_value={
-        "Items": [],
-        "Count": 0,
-        "NextPageLink": None
-    })
-    
+    mock_response.json = AsyncMock(return_value={"Items": [], "Count": 0, "NextPageLink": None})
+
     # Configure session.get to return the mock response
     session.get.return_value.__aenter__.return_value = mock_response
-    
+
     return session
 
 
@@ -59,7 +54,7 @@ def sample_azure_price_item():
         "unitOfMeasure": "1 Hour",
         "type": "Consumption",
         "isPrimaryMeterRegion": True,
-        "armSkuName": "Standard_D2s_v3"
+        "armSkuName": "Standard_D2s_v3",
     }
 
 
@@ -72,7 +67,7 @@ def sample_azure_prices_response(sample_azure_price_item):
         "CustomerEntityType": "Retail",
         "Items": [sample_azure_price_item],
         "NextPageLink": None,
-        "Count": 1
+        "Count": 1,
     }
 
 
@@ -83,5 +78,5 @@ def sample_search_filters():
         "service_name": "Virtual Machines",
         "region": "eastus",
         "sku_name": "D2s v3",
-        "price_type": "Consumption"
+        "price_type": "Consumption",
     }

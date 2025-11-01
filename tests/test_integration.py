@@ -5,6 +5,7 @@ Mark them with @pytest.mark.integration to skip during regular test runs.
 """
 
 import pytest
+
 from azure_pricing_server import AzurePricingServer
 
 
@@ -17,11 +18,9 @@ class TestAzurePricingIntegration:
         """Test actual API search (requires network)."""
         async with AzurePricingServer() as server:
             result = await server.search_azure_prices(
-                service_name="Virtual Machines",
-                region="eastus",
-                limit=5
+                service_name="Virtual Machines", region="eastus", limit=5
             )
-            
+
             assert result is not None
             assert "items" in result
             assert "count" in result
@@ -33,11 +32,9 @@ class TestAzurePricingIntegration:
         """Test actual API price comparison (requires network)."""
         async with AzurePricingServer() as server:
             result = await server.compare_prices(
-                service_name="Virtual Machines",
-                sku_name="D2s v3",
-                regions=["eastus", "westus"]
+                service_name="Virtual Machines", sku_name="D2s v3", regions=["eastus", "westus"]
             )
-            
+
             assert result is not None
             assert "comparisons" in result
 
@@ -49,8 +46,8 @@ class TestAzurePricingIntegration:
                 service_name="Virtual Machines",
                 sku_name="D2s v3",
                 region="eastus",
-                hours_per_month=730
+                hours_per_month=730,
             )
-            
+
             assert result is not None
             assert "estimated_monthly_cost" in result
