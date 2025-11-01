@@ -5,6 +5,8 @@ import { z } from 'zod';
  */
 
 // Currency codes supported by Azure Pricing API
+// Note: This list reflects currently supported currencies and may need updates
+// when Azure adds support for additional currencies
 export const CurrencyCodeSchema = z.enum(['USD', 'EUR', 'GBP', 'AUD', 'CAD', 'JPY', 'INR']);
 export type CurrencyCode = z.infer<typeof CurrencyCodeSchema>;
 
@@ -55,7 +57,7 @@ export const CostEstimateSchema = z.object({
   service_name: z.string().min(1),
   sku_name: z.string().min(1),
   region: z.string().min(1),
-  hours_per_month: z.number().min(0).max(744).default(730),
+  hours_per_month: z.number().min(0).max(744).default(730), // Max 744 = 31 days × 24 hours
   currency_code: CurrencyCodeSchema.default('USD'),
   discount_percentage: z.number().min(0).max(100).optional()
 }).strict();
