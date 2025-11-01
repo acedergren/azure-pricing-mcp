@@ -898,7 +898,7 @@ async def handle_list_tools() -> List[Tool]:
                     "validate_sku": {
                         "type": "boolean",
                         "description": "Whether to validate SKU names and provide suggestions (default: true)",
-                        "default": true,
+                        "default": True,
                     },
                 },
             },
