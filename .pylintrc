@@ -1,0 +1,47 @@
+[MASTER]
+# Use multiple processes to speed up Pylint
+jobs=4
+
+# Pickle collected data for later comparisons
+persistent=yes
+
+[MESSAGES CONTROL]
+# Disable the message, report, category or checker with the given id(s)
+disable=
+    missing-docstring,
+    invalid-name,
+    too-many-arguments,
+    too-many-locals,
+    too-many-statements,
+    too-many-branches,
+    too-few-public-methods,
+    fixme,
+    broad-except,
+    logging-fstring-interpolation
+
+[FORMAT]
+# Maximum number of characters on a single line
+max-line-length=120
+
+# Maximum number of lines in a module
+max-module-lines=1500
+
+[BASIC]
+# Good variable names which should always be accepted
+good-names=i,j,k,ex,Run,_,id,url
+
+[DESIGN]
+# Maximum number of arguments for function / method
+max-args=10
+
+# Maximum number of locals for function / method body
+max-locals=20
+
+# Maximum number of return / yield for function / method body
+max-returns=6
+
+# Maximum number of branch for function / method body
+max-branches=15
+
+# Maximum number of statements in function / method body
+max-statements=60

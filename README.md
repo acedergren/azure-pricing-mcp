@@ -1,5 +1,10 @@
 # Azure Pricing MCP Server 💰
 
+[![CI](https://github.com/acedergren/azure-pricing-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/acedergren/azure-pricing-mcp/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/acedergren/azure-pricing-mcp/branch/main/graph/badge.svg)](https://codecov.io/gh/acedergren/azure-pricing-mcp)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 A Model Context Protocol (MCP) server that provides tools for querying Azure retail pricing information using the Azure Retail Prices API.
 
 ## 🚀 Quick Start
@@ -95,6 +100,10 @@ python -m azure_pricing_server --test
 
 - **[QUICK_START.md](QUICK_START.md)** - Step-by-step setup guide
 - **[USAGE_EXAMPLES.md](USAGE_EXAMPLES.md)** - Detailed usage examples and API responses
+- **[API_REFERENCE.md](API_REFERENCE.md)** - Complete API reference and tool documentation
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture and design
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute to the project
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and changes
 - **[config_examples.json](config_examples.json)** - Example configurations for Claude Desktop and VS Code
 
 ## 🔌 API Integration
@@ -123,15 +132,24 @@ This server uses the official Azure Retail Prices API:
 - Detailed logging for troubleshooting
 - Flexible parameter support
 - Cross-platform setup scripts (PowerShell and Python)
+- Full test coverage with unit and integration tests
+- CI/CD pipeline with automated testing
+- Code quality checks and linting
 
 ## 🤝 Contributing
 
-This project follows the Spec-Driven Development (SDD) methodology. Contributions are welcome!
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Add tests for new functionality
-4. Submit a pull request
+4. Ensure all tests pass (`pytest tests/`)
+5. Run linters (`black`, `flake8`, `pylint`)
+6. Commit your changes (`git commit -m 'Add amazing feature'`)
+7. Push to the branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
 ## 📄 License
 
